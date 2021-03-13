@@ -11,19 +11,28 @@ public class PlayerController : MonoBehaviour
     // Variable que almacenará el componente Rigidbody2D
     private Rigidbody2D rb;
 
+    // Variable que almacenará el componente Animator del Player
+    private Animator anim;
+
     // Variable que almacena la velocidad del personaje
-    private float velocidadMovimiento = 10.0f;
+    public float velocidadMovimiento = 6.5f;
 
     // Variable que almacena la fuerza del salto
-    private float fuerzaSalto = 16.0f;
+    public float fuerzaSalto = 13.0f;
+
 
     // Booleano para comprobar si el personaje mira a la izquierda o la derecha
     private bool miraDerecha = true;
+
+    // Booleano para saber si el personaje esta caminando 
+    private bool estaCaminando;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         ComprobarInput();
         ComprobarDireccionMovimiento();
+        actualizarAnimaciones();
     }
 
     // FixedUpdate es llamada ...
@@ -66,10 +76,22 @@ public class PlayerController : MonoBehaviour
         else if (!miraDerecha && inputDireccionMovimiento > 0){
             CambiarDireccion();
         }
+
+        if(rb.velocity.x != 0){
+            estaCaminando = true;
+        }
+        else{
+            estaCaminando = false;
+        }
     }
 
     private void CambiarDireccion(){
         miraDerecha = !miraDerecha;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    // Función que nos permitirá actualizar las animaciones del personaje
+    private void actualizarAnimaciones(){
+        anim.SetBool("isWalking", estaCaminando);
     }
 }
