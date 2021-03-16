@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     // Variable que almacena la fuerza del salto
     public float fuerzaSalto = 13.0f;
 
+    private int saltosRealizados;
+
+    // Variable que declara los límites de saltos que puede realizar el personaje.
+    private int limiteSaltos = 1;
 
     // Booleano para comprobar si el personaje mira a la izquierda o la derecha
     private bool miraDerecha = true;
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        saltosRealizados = 0;
     }
 
     // Update is called once per frame
@@ -41,6 +46,7 @@ public class PlayerController : MonoBehaviour
         ComprobarInput();
         ComprobarDireccionMovimiento();
         actualizarAnimaciones();
+
     }
 
     // FixedUpdate es llamada ...
@@ -60,7 +66,17 @@ public class PlayerController : MonoBehaviour
 
     //Función que permitirá saltar a el personaje
     private void Saltar(){
-        rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
+        if(saltosRealizados < limiteSaltos){
+            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
+            saltosRealizados++;
+        }
+    }
+
+    // Cuando entre en contacto con un colider que sea suelo, resetee la variable de saltos realizados.
+    void OnCollisionEnter2D(Collision2D obj) {
+        if(obj.collider.tag == "suelo"){
+            saltosRealizados = 0;
+        }
     }
 
     // Función que aplicará el movimiento lateral al personaje
