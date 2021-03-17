@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    // Variable que almacenará la dirección
-    private float inputDireccionMovimiento;
-
+    
     // Variable que almacenará el componente Rigidbody2D
     private Rigidbody2D rb;
 
     // Variable que almacenará el componente Animator del Player
     private Animator anim;
+
+    // Variable que almacena la posición del personaje;
+    public Transform suelo;
+
+    // Variable que nos permitirá decir en que capa queremos que colisione nuestro objeto jugador
+    public LayerMask mascaraSuelo;
+
+
+    // Variable que almacenará la dirección
+    private float inputDireccionMovimiento;
 
     // Variable que almacena la velocidad del personaje
     public float velocidadMovimiento = 6.5f;
@@ -20,10 +27,9 @@ public class PlayerController : MonoBehaviour
     // Variable que almacena la fuerza del salto
     public float fuerzaSalto = 13.0f;
 
-    private int saltosRealizados;
+    // Variable que almacena el radio para comprobar si dentro de dicho radio el personaje colisióna con algún objeto tipo suelo.
+    private float radio = 0.06f;
 
-    // Variable que declara los límites de saltos que puede realizar el personaje.
-    private int limiteSaltos = 1;
 
     // Booleano para comprobar si el personaje mira a la izquierda o la derecha
     private bool miraDerecha = true;
@@ -31,13 +37,15 @@ public class PlayerController : MonoBehaviour
     // Booleano para saber si el personaje esta caminando 
     private bool estaCaminando;
 
+    // Booleano para saber si el personaje esta en el suelo
+    private bool estaEnSuelo = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        saltosRealizados = 0;
     }
 
     // Update is called once per frame
@@ -52,6 +60,8 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate es llamada ...
     private void FixedUpdate() {
         AplicarMovimiento();
+
+        estaEnSuelo = Physics2D.OverlapCircle(suelo.position, radio, mascaraSuelo);
     }
 
     // Función que comprobará la dirección del personaje
@@ -66,18 +76,11 @@ public class PlayerController : MonoBehaviour
 
     //Función que permitirá saltar a el personaje
     private void Saltar(){
-        if(saltosRealizados < limiteSaltos){
-            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);
-            saltosRealizados++;
+        if(estaEnSuelo){
+            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);            
         }
     }
 
-    // Cuando entre en contacto con un colider que sea suelo, resetee la variable de saltos realizados.
-    void OnCollisionEnter2D(Collision2D obj) {
-        if(obj.collider.tag == "suelo"){
-            saltosRealizados = 0;
-        }
-    }
 
     // Función que aplicará el movimiento lateral al personaje
     private void AplicarMovimiento(){
