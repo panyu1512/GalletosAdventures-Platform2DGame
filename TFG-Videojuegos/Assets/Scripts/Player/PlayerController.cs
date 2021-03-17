@@ -113,4 +113,5 @@ public class PlayerController : MonoBehaviour
     private void actualizarAnimaciones(){
         anim.SetBool("isWalking", estaCaminando);
     }
+
 }

@@ -3166,27 +3166,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial_95
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 432
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34b57e008e64b5850800000000000000
-      internalID: 6366760460479847235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: industrial_96
       rect:
         serializedVersion: 2
@@ -3613,7 +3592,7 @@ TextureImporter:
         x: 16
         y: 416
         width: 16
-        height: 16
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3634,7 +3613,7 @@ TextureImporter:
         x: 32
         y: 416
         width: 16
-        height: 16
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
