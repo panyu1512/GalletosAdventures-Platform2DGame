@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class PlayerController : MonoBehaviour
     // Variable que almacenará el componente Animator del Player
     private Animator anim;
 
+    private Collider2D colliderJugador;
+
     // Variable que almacena la posición del personaje;
     public Transform suelo;
 
     // Variable que nos permitirá decir en que capa queremos que colisione nuestro objeto jugador
     public LayerMask mascaraSuelo;
+
+    public GameObject[] objetos;
 
 
     // Variable que almacenará la dirección
@@ -26,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     // Variable que almacena la fuerza del salto
     public float fuerzaSalto = 13.0f;
+
+    public float fuerzaMuerte;
 
     // Variable que almacena el radio para comprobar si dentro de dicho radio el personaje colisióna con algún objeto tipo suelo.
     private float radio = 0.06f;
@@ -40,28 +47,40 @@ public class PlayerController : MonoBehaviour
     // Booleano para saber si el personaje esta en el suelo
     private bool estaEnSuelo = true;
 
+    private bool vivo;
+    
+    private bool estaMuerto;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        colliderJugador = GetComponent<Collider2D>();
+
+        vivo = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        ComprobarInput();
-        ComprobarDireccionMovimiento();
-        actualizarAnimaciones();
+        if(vivo == true){
+            ComprobarInput();
+            ComprobarDireccionMovimiento();
+            actualizarAnimaciones();
+        }
 
     }
 
     // FixedUpdate es llamada ...
     private void FixedUpdate() {
-        AplicarMovimiento();
+        if(vivo == true){
+            AplicarMovimiento();
 
-        estaEnSuelo = Physics2D.OverlapCircle(suelo.position, radio, mascaraSuelo);
+            estaEnSuelo = Physics2D.OverlapCircle(suelo.position, radio, mascaraSuelo);
+        }
     }
 
     // Función que comprobará la dirección del personaje
@@ -114,4 +133,44 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWalking", estaCaminando);
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.transform.CompareTag("spikes")){
+            JugadorMuerto();
+        }   
+    }
+    // Función que realiza la animación de muerte del jugador
+    void JugadorMuerto(){
+        estaMuerto = true;
+        anim.SetBool("death", estaMuerto);
+
+        vivo = false;
+
+        colliderJugador.enabled = false;
+        foreach (GameObject obj in objetos)
+            obj.SetActive(false);
+
+        rb.gravityScale = 2f;
+        rb.AddForce(transform.up * fuerzaMuerte, ForceMode2D.Impulse);
+
+        // Mediante la función StartCoroutine relantizaremos la función de RespawnJugador.
+        StartCoroutine("RespawnJugador");
+    }
+
+    // Resetearemos las variables y cargaremos de nuevo la escena.
+    IEnumerator RespawnJugador(){
+        yield return new WaitForSeconds(1f);
+        estaMuerto = false;
+        anim.SetBool("death", estaMuerto);
+
+        colliderJugador.enabled = true;
+        foreach (GameObject obj in objetos)
+            obj.SetActive(true);
+
+        rb.gravityScale = 4f;
+
+        yield return new WaitForSeconds(0.01f);
+        vivo = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
 }
