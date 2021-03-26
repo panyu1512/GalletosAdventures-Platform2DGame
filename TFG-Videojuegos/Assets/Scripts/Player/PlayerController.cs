@@ -134,9 +134,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.transform.CompareTag("spikes")){
+        if(other.transform.CompareTag("spikes") || other.transform.CompareTag("caida")){
             JugadorMuerto();
-        }   
+        }
     }
     // Función que realiza la animación de muerte del jugador
     void JugadorMuerto(){
@@ -173,4 +173,5 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
+
 }
