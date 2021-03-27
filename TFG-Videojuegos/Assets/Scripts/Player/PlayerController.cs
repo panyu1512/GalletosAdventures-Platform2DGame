@@ -137,7 +137,18 @@ public class PlayerController : MonoBehaviour
         if(other.transform.CompareTag("spikes") || other.transform.CompareTag("caida")){
             JugadorMuerto();
         }
+
+        if(other.transform.CompareTag("PlataformaMov")){
+            transform.parent = other.transform;
+        }
     }
+
+    private void OnCollisionExit2D(Collision2D other){
+        if(other.transform.CompareTag("PlataformaMov")){
+            transform.parent = null;
+        }
+    }
+
     // Función que realiza la animación de muerte del jugador
     void JugadorMuerto(){
         estaMuerto = true;
