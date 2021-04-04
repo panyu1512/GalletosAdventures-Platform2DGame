@@ -13,7 +13,7 @@ public class Box_Elevator : MonoBehaviour
     // Función que nos permitirá saber si el trampolín colosiona con el objeto player.
     private void OnCollisionEnter2D(Collision2D colision) {
         if(colision.transform.CompareTag("jugador")){
-            // Al colisionar aplicamos una fuerza horizontal a nuestro objeto player
+            // Al colisionar aplicamos una fuerza vertical a nuestro objeto player
             colision.gameObject.GetComponent<Rigidbody2D>().velocity = (Vector2.up * fuerzaSalto);
             
             // Activamos la animación del trampoline del

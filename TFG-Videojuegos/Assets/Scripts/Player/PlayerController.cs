@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     public float fuerzaMuerte;
 
+    private float fuerzaLateral = 10f;
+
     // Variable que almacena el radio para comprobar si dentro de dicho radio el personaje colisióna con algún objeto tipo suelo.
     private float radio = 0.06f;
 
@@ -71,7 +73,6 @@ public class PlayerController : MonoBehaviour
             ComprobarDireccionMovimiento();
             actualizarAnimaciones();
         }
-
     }
 
     // FixedUpdate es llamada ...
@@ -141,6 +142,7 @@ public class PlayerController : MonoBehaviour
         if(other.transform.CompareTag("PlataformaMov")){
             transform.parent = other.transform;
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D other){
