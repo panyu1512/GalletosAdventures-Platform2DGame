@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
     // Booleano para saber si el personaje esta en el suelo
     private bool estaEnSuelo = true;
 
+    private bool estaDeslizando;
+
     private bool vivo;
     
     private bool estaMuerto;
@@ -157,9 +159,13 @@ public class PlayerController : MonoBehaviour
     public void checkPared(){
         if(Physics2D.OverlapCircle(pared.position, radioPared, mascaraPared) 
             && Mathf.Abs(inputDireccionMovimiento) > 0 && rb.velocity.y < 0 && !estaEnSuelo){
+                estaDeslizando = true;
                 Vector2 v = rb.velocity;
                 v.y = -fuerzaDeslizamiento;
                 rb.velocity = v;
+        }
+        else{
+            estaDeslizando = false;
         }
     }
 
@@ -187,6 +193,7 @@ public class PlayerController : MonoBehaviour
     // Función que nos permitirá actualizar las animaciones del personaje
     private void actualizarAnimaciones(){
         anim.SetBool("isWalking", estaCaminando);
+        anim.SetBool("isSliding", estaDeslizando);
     }
 
     //Función que nos permite abrir el menú en medio de la partida
