@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
         dashEnfriamiento -= Time.deltaTime;
 
-        if(Input.GetKey("e") && dashEnfriamiento <=0){
+        if(Input.GetKey("e") && dashEnfriamiento <=0 && estaEnSuelo == false){
             GameObject objetoDash;
             objetoDash = Instantiate(efectoDash, transform.position, transform.rotation);
 
