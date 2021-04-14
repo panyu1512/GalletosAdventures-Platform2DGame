@@ -26,10 +26,14 @@ public class PlayerController : MonoBehaviour
     // Variable que nos permitirá decir en que capa queremos que colisione nuestro objeto jugador
     public LayerMask mascaraPared;
 
+    public GameObject jugador;
+    
     public GameObject[] objetos;
 
     // Varianle que almacenará el objeto con nuestra animación del dash. 
     public GameObject efectoDash;
+
+    public GameObject GameOverUI;
 
 
     // Variable que almacenará la dirección.
@@ -234,8 +238,10 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 2f;
         rb.AddForce(transform.up * fuerzaMuerte, ForceMode2D.Impulse);
 
+        GameOverUI.SetActive(true);
+        
         // Mediante la función StartCoroutine relantizaremos la función de RespawnJugador.
-        StartCoroutine("RespawnJugador");
+        //StartCoroutine("RespawnJugador");
     }
 
     // Resetearemos las variables y cargaremos de nuevo la escena.
