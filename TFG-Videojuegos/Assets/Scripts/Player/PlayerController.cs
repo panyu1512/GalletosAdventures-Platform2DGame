@@ -25,15 +25,13 @@ public class PlayerController : MonoBehaviour
 
     // Variable que nos permitirá decir en que capa queremos que colisione nuestro objeto jugador
     public LayerMask mascaraPared;
-
-    public GameObject jugador;
     
     public GameObject[] objetos;
 
     // Varianle que almacenará el objeto con nuestra animación del dash. 
     public GameObject efectoDash;
 
-    public GameObject GameOverUI;
+    public GameObject gameOverUI;
 
 
     // Variable que almacenará la dirección.
@@ -97,7 +95,6 @@ public class PlayerController : MonoBehaviour
             ComprobarInput();
             ComprobarDireccionMovimiento();
             actualizarAnimaciones();
-            abrirMenu();
             checkPared();
             
         }
@@ -200,13 +197,6 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isSliding", estaDeslizando);
     }
 
-    //Función que nos permite abrir el menú en medio de la partida
-    private void abrirMenu(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            SceneManager.LoadScene("SelectLevelMenu");
-        }       
-    }
-
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.transform.CompareTag("spikes") || other.transform.CompareTag("caida")){
             JugadorMuerto();
@@ -238,15 +228,19 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 2f;
         rb.AddForce(transform.up * fuerzaMuerte, ForceMode2D.Impulse);
 
-        GameOverUI.SetActive(true);
-        
+        gameOverUI.SetActive(true);
+
+        Respawn();
+    }
+
+    public void Respawn(){
         // Mediante la función StartCoroutine relantizaremos la función de RespawnJugador.
-        //StartCoroutine("RespawnJugador");
+        StartCoroutine("RespawnJugador");
     }
 
     // Resetearemos las variables y cargaremos de nuevo la escena.
     IEnumerator RespawnJugador(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         estaMuerto = false;
         anim.SetBool("death", estaMuerto);
 

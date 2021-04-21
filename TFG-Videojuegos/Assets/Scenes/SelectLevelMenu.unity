@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 1
+  m_text: LEVEL 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -291,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178, y: 175.5}
-  m_SizeDelta: {x: 290.62, y: 78.3364}
+  m_AnchoredPosition: {x: -161.65, y: 165}
+  m_SizeDelta: {x: 323.31, y: 78.3364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157162844
 MonoBehaviour:
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elige el nivel
+  m_text: SELECT LEVEL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 3
+  m_text: LEVEL 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 2
+  m_text: LEVEL 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 7
+  m_text: LEVEL 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2146,7 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial
+  m_text: TUTORIAL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -2397,8 +2397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.0965, y: 113.32707}
-  m_SizeDelta: {x: 244.3245, y: 46.009}
+  m_AnchoredPosition: {x: 270.27, y: 113.32707}
+  m_SizeDelta: {x: 93.9812, y: 46.009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315878944
 MonoBehaviour:
@@ -2413,7 +2413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2551,7 +2551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 8
+  m_text: LEVEL 8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -2685,7 +2685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 6
+  m_text: LEVEL 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -2819,7 +2819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 5
+  m_text: LEVEL 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -2984,7 +2984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3153,7 +3153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Volver al Men\xFA Principal"
+  m_text: MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
@@ -3532,7 +3532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3670,7 +3670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nivel 4
+  m_text: LEVEL 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
   m_sharedMaterial: {fileID: 3190602120493489562, guid: 8c6678c1b68178445ae466090efe7e1b, type: 2}
