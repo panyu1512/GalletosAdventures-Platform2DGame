@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     // Variable que almacena la posición de la pared;
     public Transform pared;
 
+    public Transform spawnPrefab;
+    public Transform spawn;
+
     // Variable que nos permitirá decir en que capa queremos que colisione nuestro objeto jugador
     public LayerMask mascaraSuelo;
 
@@ -229,12 +232,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(transform.up * fuerzaMuerte, ForceMode2D.Impulse);
 
         gameOverUI.SetActive(true);
-
-        Respawn();
-    }
-
-    public void Respawn(){
-        // Mediante la función StartCoroutine relantizaremos la función de RespawnJugador.
+        
         StartCoroutine("RespawnJugador");
     }
 
@@ -250,10 +248,17 @@ public class PlayerController : MonoBehaviour
 
         rb.gravityScale = 4f;
 
+        gameOverUI.SetActive(false);
+
         yield return new WaitForSeconds(0.01f);
         vivo = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+        if(!miraDerecha){
+            CambiarDireccion();
+        }
+        
+        transform.position = (new Vector2(spawn.position.x, spawn.position.y));
+        Instantiate(spawnPrefab,spawn.position, spawn.rotation);
     }
 
 }
