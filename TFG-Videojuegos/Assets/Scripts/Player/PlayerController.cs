@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Transform pared;
 
     public Transform spawnPrefab;
+
     public Transform spawn;
 
     // Variable que nos permitirá decir en que capa queremos que colisione nuestro objeto jugador
@@ -63,6 +64,10 @@ public class PlayerController : MonoBehaviour
 
     //Variable que almacena la velocidad de nuestro dash.
     public float fuerzaDash = 30f;
+
+    private float checkPointX;
+
+    private float checkPointY;
 
  
     // Booleano para comprobar si el personaje mira a la izquierda o la derecha
@@ -215,6 +220,15 @@ public class PlayerController : MonoBehaviour
         if(other.transform.CompareTag("PlataformaMov")){
             transform.parent = null;
         }
+    }
+
+    public void CheckPointAlcanzado(float x, float y){
+
+        PlayerPrefs.SetFloat("checkPointX", x);
+        PlayerPrefs.SetFloat("checkPointX", y);
+
+        spawn.position = new Vector2(x,y);
+        
     }
 
     // Función que realiza la animación de muerte del jugador
