@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6719468348403877128}
   m_Layer: 0
-  m_Name: UIOverlayGameOver
+  m_Name: UIGameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6719468348403877128
 Transform:
   m_ObjectHideFlags: 0

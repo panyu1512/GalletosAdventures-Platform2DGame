@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private bool vivo;
     
-    private bool estaMuerto;
+    public bool estaMuerto;
 
 
     // Start is called before the first frame update
