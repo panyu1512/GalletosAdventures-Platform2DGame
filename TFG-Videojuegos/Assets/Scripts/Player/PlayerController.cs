@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject gameOverUI;
 
+    public GameObject[] enemigos;
+
 
     // Variable que almacenará la dirección.
     private float inputDireccionMovimiento;
@@ -232,7 +234,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Función que realiza la animación de muerte del jugador
-    void JugadorMuerto(){
+    public void JugadorMuerto(){
         estaMuerto = true;
         anim.SetBool("death", estaMuerto);
 

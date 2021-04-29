@@ -14,7 +14,7 @@ public class PlatformInteractive : MonoBehaviour
 
 
 
-    private void Update() {
+    private void FixedUpdate() {
 
         if(palanca.GetComponent<Lever>().On == true){
             animator.Play("PlatformInteractiveOn");
