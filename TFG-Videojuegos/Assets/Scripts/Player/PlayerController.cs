@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.transform.CompareTag("spikes") || other.transform.CompareTag("caida")){
+        if(other.transform.CompareTag("spikes") || other.transform.CompareTag("caida")|| other.transform.CompareTag("laser")){
             JugadorMuerto();
         }
 

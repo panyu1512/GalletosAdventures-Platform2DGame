@@ -11,6 +11,7 @@ TagManager:
   - caida
   - PlataformaMov
   - bala
+  - laser
   layers:
   - Default
   - TransparentFX
