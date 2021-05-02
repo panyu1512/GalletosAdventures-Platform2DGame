@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
     //Variable que almacena el cooldown que tendrá nuestro dash.
     public float dashEnfriamiento;
 
+    public float saltoParedEnfriamiento;
+
     //Variable que almacena la velocidad de nuestro dash.
     public float fuerzaDash = 30f;
 
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
 
     // Booleano para saber si el personaje esta en el suelo
     private bool estaEnSuelo = true;
+    private bool estaEnPared = true;
 
     private bool estaDeslizando;
 
@@ -102,6 +105,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(vivo == true){
+            saltoParedEnfriamiento -= Time.deltaTime;
             ComprobarInput();
             ComprobarDireccionMovimiento();
             actualizarAnimaciones();
@@ -131,8 +135,13 @@ public class PlayerController : MonoBehaviour
 
     //Función que permitirá saltar a el personaje
     private void Saltar(){
+
         if(estaEnSuelo){
             rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);            
+        }
+        if(estaEnPared && saltoParedEnfriamiento <=0){
+            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);   
+            saltoParedEnfriamiento = 0.7f;
         }
     }
 
@@ -168,7 +177,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void checkPared(){
-        if(Physics2D.OverlapCircle(pared.position, radioPared, mascaraPared) 
+        estaEnPared = Physics2D.OverlapCircle(pared.position, radioPared, mascaraPared);
+        if(estaEnPared 
             && Mathf.Abs(inputDireccionMovimiento) > 0 && rb.velocity.y < 0 && !estaEnSuelo){
                 estaDeslizando = true;
                 Vector2 v = rb.velocity;

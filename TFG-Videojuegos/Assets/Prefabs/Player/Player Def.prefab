@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3121977521878601149
 Transform:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1124530115304681468}
   - component: {fileID: 6058664500168824147}
   m_Layer: 0
-  m_Name: Player (2)
+  m_Name: Player Def
   m_TagString: jugador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suelo: {fileID: 7895361853404186654}
   pared: {fileID: 3121977521878601149}
+  spawnPrefab: {fileID: 29071788502862785, guid: 97b06850a556d4843ac81cf8d8fa97a5, type: 3}
+  spawn: {fileID: 0}
   mascaraSuelo:
     serializedVersion: 2
     m_Bits: 64
@@ -179,12 +181,15 @@ MonoBehaviour:
   - {fileID: 8920009990290089709}
   - {fileID: 3121977521878601148}
   efectoDash: {fileID: 3432332807133328495, guid: e4c9dfb4cdef0d14a8c33c9316b30180, type: 3}
+  gameOverUI: {fileID: 6719468348403877131, guid: 29721d2192a4dd74486bd294b14f1116, type: 3}
+  enemigos: []
   velocidadMovimiento: 6.5
   fuerzaSalto: 13
   fuerzaMuerte: 7
   fuerzaDeslizamiento: 1
   dashEnfriamiento: 0
   fuerzaDash: 150
+  estaMuerto: 1
 --- !u!95 &6058664500168824147
 Animator:
   serializedVersion: 3
@@ -219,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7895361853404186654
 Transform:
   m_ObjectHideFlags: 0

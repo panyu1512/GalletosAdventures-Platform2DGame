@@ -10,6 +10,7 @@ TagManager:
   - cinta
   - caida
   - PlataformaMov
+  - bala
   layers:
   - Default
   - TransparentFX
