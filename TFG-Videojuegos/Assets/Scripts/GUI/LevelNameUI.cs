@@ -26,7 +26,7 @@ public class LevelNameUI : MonoBehaviour
         contadorSegundos += Time.deltaTime;
 
         if(escenaActual.buildIndex >= 3){
-            nombreNivel.text = "Nivel " + (escenaActual.buildIndex-2);
+            nombreNivel.text = "Level " + (escenaActual.buildIndex-2);
         }
         else{
             nombreNivel.text = "Tutorial";
