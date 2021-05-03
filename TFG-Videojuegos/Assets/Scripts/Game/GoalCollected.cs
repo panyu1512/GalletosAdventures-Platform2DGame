@@ -17,12 +17,17 @@ public class GoalCollected : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             Destroy(gameObject, 2f);
+            SceneManager.LoadScene(siguienteEscena);
+
+            if(siguienteEscena > PlayerPrefs.GetInt("nivelAlcanzado")){
+                PlayerPrefs.SetInt("nivelAlcanzado",siguienteEscena);
+            }
         }    
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("jugador")){
-            SceneManager.LoadScene(siguienteEscena);
+           
         }
     }
 }

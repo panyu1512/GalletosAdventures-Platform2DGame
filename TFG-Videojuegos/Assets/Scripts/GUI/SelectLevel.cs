@@ -27,6 +27,10 @@ public class SelectLevel : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
+    public void reset(){
+        PlayerPrefs.DeleteAll();
+    }
+
 
 
 }

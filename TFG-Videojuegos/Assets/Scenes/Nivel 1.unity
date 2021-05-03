@@ -367,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97393978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.963997, y: 1.1099997, z: 0}
+  m_LocalPosition: {x: 24.11, y: -3.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1577012734}
@@ -443,7 +443,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 106493785}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 76d256c1a1abefb40a72926fe236f339, type: 2}
+  m_Material: {fileID: 6200000, guid: 95ce932970ac69d4891626550619f6cf, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1805,7 +1805,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3268,7 +3268,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -25626,7 +25626,7 @@ PrefabInstance:
     - target: {fileID: 818140816694053371, guid: 4283189527a81614194a1832612620e5, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 76d256c1a1abefb40a72926fe236f339, type: 2}
+      objectReference: {fileID: 6200000, guid: 95ce932970ac69d4891626550619f6cf, type: 2}
     - target: {fileID: 818140816694053374, guid: 4283189527a81614194a1832612620e5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -25671,7 +25671,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2732783714422199615, guid: 4283189527a81614194a1832612620e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4283189527a81614194a1832612620e5, type: 3}
 --- !u!1001 &1277335608793313564
 PrefabInstance:
