@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource gameOver;
 
+    public AudioSource dash;
+
 
     // Start is called before the first frame update
     void Start()
@@ -219,6 +221,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey("e") && dashEnfriamiento <=0 && estaEnSuelo == false && dashDisponible == true){
             GameObject objetoDash;
             objetoDash = Instantiate(efectoDash, transform.position, transform.rotation);
+
+            dash.Play();
 
             if(miraDerecha){
                 rb.AddForce(Vector2.right * fuerzaDash, ForceMode2D.Impulse);
