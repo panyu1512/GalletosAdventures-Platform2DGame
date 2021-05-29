@@ -613,3 +613,33 @@ System memory in use after: 94.6 MB.
 Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2489.
 Total: 2.590900 ms (FindLiveObjects: 0.455200 ms CreateObjectMapping: 0.116400 ms MarkObjects: 1.885100 ms  DeleteObjects: 0.133000 ms)
 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 56.0 MB.
+System memory in use after: 56.0 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2489.
+Total: 2.777200 ms (FindLiveObjects: 0.433100 ms CreateObjectMapping: 0.075400 ms MarkObjects: 2.128800 ms  DeleteObjects: 0.137300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2410.633076 seconds.
+  path: Assets/Scenes/Nivel 5.unity
+  artifactKey: Guid(1f2f6f00ef690904aa17323bd1d12377) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Nivel 5.unity using Guid(1f2f6f00ef690904aa17323bd1d12377) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60619eebc465093f7f0c5e2b8f37ef14') in 0.017027 seconds
+  Import took 0.021269 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.35 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 56.1 MB.
+System memory in use after: 56.1 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2489.
+Total: 2.897300 ms (FindLiveObjects: 0.240500 ms CreateObjectMapping: 0.045600 ms MarkObjects: 2.468400 ms  DeleteObjects: 0.141500 ms)
+
