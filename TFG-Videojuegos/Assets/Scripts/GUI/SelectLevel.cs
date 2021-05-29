@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class SelectLevel : MonoBehaviour
 {
+    public AudioSource sonidoFondo;
+
+    public AudioSource sonidoBotones;
 
     public Button[] levelButtons;
 
     void Start(){
+
+        Invoke("AudioFondo",1f);
 
         int nivelAlcanzado = PlayerPrefs.GetInt("nivelAlcanzado", 2);
 
@@ -24,11 +29,16 @@ public class SelectLevel : MonoBehaviour
 
     //Función que nos permitirá el Nivel o la escena que queramos
     public void SelectLevelOrScene (string levelName){
+        sonidoBotones.Play();
         SceneManager.LoadScene(levelName);
     }
 
     public void reset(){
         PlayerPrefs.DeleteAll();
+    }
+
+    public void AudioFondo(){
+        sonidoFondo.Play();
     }
 
 

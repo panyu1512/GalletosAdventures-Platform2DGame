@@ -8,12 +8,15 @@ public class EndGame : MonoBehaviour
     public GameObject finJuegoUI;
     public bool UIactivo = false;
 
+    public GameObject jugador;
+
+
     public void Update(){
         if(UIactivo == true){
-
             if(Input.anyKeyDown){
                 Invoke("CargarMenu",0);
             }
+            Destroy(jugador);
         }
     }
 

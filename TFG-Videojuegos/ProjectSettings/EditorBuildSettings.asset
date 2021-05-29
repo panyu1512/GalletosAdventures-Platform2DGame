@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SpeedRun.unity
+    guid: d21fc3c38f2019f408262a6b119c46aa
   m_configObjects: {}

@@ -8,21 +8,30 @@ public class GoalCollected : MonoBehaviour
 
     private int siguienteEscena;
 
+    public GameObject UIFinNivel;
+
     private void Start() {
         siguienteEscena = SceneManager.GetActiveScene().buildIndex + 1;
     }
+
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("jugador")){
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             Destroy(gameObject, 2f);
-            SceneManager.LoadScene(siguienteEscena);
+            UIFinNivel.SetActive(true);
+            Invoke("SiguienteEscena", 0.8f);
 
-            if(siguienteEscena > PlayerPrefs.GetInt("nivelAlcanzado")){
-                PlayerPrefs.SetInt("nivelAlcanzado",siguienteEscena);
-            }
         }    
+    }
+
+    public void SiguienteEscena(){
+        SceneManager.LoadScene(siguienteEscena);
+
+        if(siguienteEscena > PlayerPrefs.GetInt("nivelAlcanzado")){
+                PlayerPrefs.SetInt("nivelAlcanzado",siguienteEscena);
+        }
     }
 
 }

@@ -18,6 +18,8 @@ public class JumpDamage : MonoBehaviour
 
     public int vidas = 2;
 
+    public AudioSource dañoEnemigo;
+
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.transform.CompareTag("jugador")){
@@ -30,6 +32,7 @@ public class JumpDamage : MonoBehaviour
     public void DañoEnemigo(){
         vidas --;
         animator.Play("EnemyHit");
+        dañoEnemigo.Play();
     }
 
     public void MuerteEnemigo(){

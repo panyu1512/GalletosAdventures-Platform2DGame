@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 246552591568351283}
   - component: {fileID: 7623317561824324793}
   m_Layer: 0
-  m_Name: Goal 1
+  m_Name: GoalDef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba21161d79e9acb479f2c353191d767c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIFinNivel: {fileID: 5338891327979654953, guid: baa90f66aeaac094e8dba11932bb58f1, type: 3}
 --- !u!1001 &1572660314246603793
 PrefabInstance:
   m_ObjectHideFlags: 0

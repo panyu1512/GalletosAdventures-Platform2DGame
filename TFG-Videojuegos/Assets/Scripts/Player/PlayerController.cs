@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject[] enemigos;
 
+    private Scene escenaActual;
+
 
     // Variable que almacenará la dirección.
     private float inputDireccionMovimiento;
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
     // Booleano para saber si el personaje esta en el suelo
     private bool estaEnSuelo = true;
+
     private bool estaEnPared = true;
 
     private bool estaDeslizando;
@@ -90,6 +93,14 @@ public class PlayerController : MonoBehaviour
     
     public bool estaMuerto;
 
+    private bool dashDisponible = false;
+
+    public AudioSource saltoJugador;
+
+    public AudioSource sonidoMuerte;
+
+    public AudioSource gameOver;
+
 
     // Start is called before the first frame update
     void Start()
@@ -97,6 +108,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         colliderJugador = GetComponent<Collider2D>();
+        escenaActual = SceneManager.GetActiveScene();
         vivo = true;
 
     }
@@ -111,6 +123,9 @@ public class PlayerController : MonoBehaviour
             actualizarAnimaciones();
             checkPared();
             
+        }
+        if(escenaActual.buildIndex >= 5){
+            dashDisponible = true;
         }
     }
 
@@ -128,8 +143,14 @@ public class PlayerController : MonoBehaviour
 
         inputDireccionMovimiento = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButtonDown("Jump")){
+        if(Input.GetButtonDown("Jump") && estaEnSuelo){ 
             Saltar();
+            saltoJugador.Play();
+        }
+
+        if(Input.GetButtonDown("Jump") && estaEnPared && saltoParedEnfriamiento <=0){ 
+            Saltar();
+            saltoJugador.Play();
         }
     }
 
@@ -137,7 +158,7 @@ public class PlayerController : MonoBehaviour
     private void Saltar(){
 
         if(estaEnSuelo){
-            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);            
+            rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);           
         }
         if(estaEnPared && saltoParedEnfriamiento <=0){
             rb.velocity = new Vector2(rb.velocity.x, fuerzaSalto);   
@@ -195,7 +216,7 @@ public class PlayerController : MonoBehaviour
 
         dashEnfriamiento -= Time.deltaTime;
 
-        if(Input.GetKey("e") && dashEnfriamiento <=0 && estaEnSuelo == false){
+        if(Input.GetKey("e") && dashEnfriamiento <=0 && estaEnSuelo == false && dashDisponible == true){
             GameObject objetoDash;
             objetoDash = Instantiate(efectoDash, transform.position, transform.rotation);
 
@@ -246,6 +267,9 @@ public class PlayerController : MonoBehaviour
     // Función que realiza la animación de muerte del jugador
     public void JugadorMuerto(){
         estaMuerto = true;
+
+        sonidoMuerte.Play();
+
         anim.SetBool("death", estaMuerto);
 
         vivo = false;
@@ -258,6 +282,8 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(transform.up * fuerzaMuerte, ForceMode2D.Impulse);
 
         gameOverUI.SetActive(true);
+
+        gameOver.Play();
         
         StartCoroutine("RespawnJugador");
     }
@@ -284,7 +310,7 @@ public class PlayerController : MonoBehaviour
         }
         
         transform.position = (new Vector2(spawn.position.x, spawn.position.y));
-        Instantiate(spawnPrefab,spawn.position, spawn.rotation);
+        Instantiate(spawnPrefab, spawn.position, spawn.rotation);
     }
 
 }
