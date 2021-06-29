@@ -201,12 +201,11 @@ public class PlayerController : MonoBehaviour
 
     public void checkPared(){
         estaEnPared = Physics2D.OverlapCircle(pared.position, radioPared, mascaraPared);
-        if(estaEnPared 
-            && Mathf.Abs(inputDireccionMovimiento) > 0 && rb.velocity.y < 0 && !estaEnSuelo){
-                estaDeslizando = true;
-                Vector2 v = rb.velocity;
-                v.y = -fuerzaDeslizamiento;
-                rb.velocity = v;
+        if(estaEnPared && Mathf.Abs(inputDireccionMovimiento) > 0 && rb.velocity.y < 0 && !estaEnSuelo){
+            estaDeslizando = true;
+            Vector2 v = rb.velocity;
+            v.y = -fuerzaDeslizamiento;
+            rb.velocity = v;
         }
         else{
             estaDeslizando = false;
